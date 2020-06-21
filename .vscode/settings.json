@@ -1,9 +1,11 @@
 {
 	"files.exclude": {
-		"C:/Users/Akasa/Downloads/SimpleFPSTemplate-master/SimpleFPSTemplate-master/.vscode": true,
-		"C:/Users/Akasa/Downloads/SimpleFPSTemplate-master/SimpleFPSTemplate-master/Content": true,
-		"C:/Users/Akasa/Downloads/SimpleFPSTemplate-master/SimpleFPSTemplate-master/DerivedDataCache": true,
-		"C:/Users/Akasa/Downloads/SimpleFPSTemplate-master/SimpleFPSTemplate-master/Intermediate": true,
-		"C:/Users/Akasa/Downloads/SimpleFPSTemplate-master/SimpleFPSTemplate-master/Saved": true
+		"C:/Users/Akasa/Desktop/Game Development Extraz/Current/Stealth_Project/.git": true,
+		"C:/Users/Akasa/Desktop/Game Development Extraz/Current/Stealth_Project/.vs": true,
+		"C:/Users/Akasa/Desktop/Game Development Extraz/Current/Stealth_Project/.vscode": true,
+		"C:/Users/Akasa/Desktop/Game Development Extraz/Current/Stealth_Project/Content": true,
+		"C:/Users/Akasa/Desktop/Game Development Extraz/Current/Stealth_Project/DerivedDataCache": true,
+		"C:/Users/Akasa/Desktop/Game Development Extraz/Current/Stealth_Project/Intermediate": true,
+		"C:/Users/Akasa/Desktop/Game Development Extraz/Current/Stealth_Project/Saved": true
 	}
 }
