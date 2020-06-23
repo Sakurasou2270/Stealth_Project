@@ -29,6 +29,9 @@ protected:
 	USphereComponent *OuterSphere;
 
 	UPROPERTY(EditAnywhere, Category = "Mesh")
+	float InnerSphereSize;
+
+	UPROPERTY(EditAnywhere, Category = "Mesh")
 	float OuterSphereSize;
 
 	UPROPERTY(EditAnywhere, Category = "Mesh")
@@ -37,7 +40,6 @@ protected:
 	virtual void BeginPlay() override;
 	virtual void Tick(float DeltaTime) override;
 
-public:
 	UFUNCTION()
 	void InnerOverlap(
 		class UPrimitiveComponent *OverlappedComp,

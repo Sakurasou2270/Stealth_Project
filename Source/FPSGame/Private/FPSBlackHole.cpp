@@ -3,8 +3,6 @@
 #include "FPSBlackHole.h"
 #include "Components/StaticMeshComponent.h"
 #include "Components/SphereComponent.h"
-#include "Kismet/GameplayStatics.h"
-#include "Engine/StaticMeshActor.h"
 
 // Sets default values
 AFPSBlackHole::AFPSBlackHole()
@@ -41,9 +39,9 @@ void AFPSBlackHole::Tick(float DeltaTime)
 	TArray<UPrimitiveComponent *> Components;
 	OuterSphere->GetOverlappingComponents(Components);
 
-	for (auto &&Comp : Components)
+	for (UPrimitiveComponent *Comp : Components)
 	{
-		if (Comp && Comp != OuterSphere && Comp != InnerSphere)
+		if (Comp && Comp->IsSimulatingPhysics())
 		{
 			Comp->AddRadialForce(GetActorLocation(), OuterSphereSize, Strength, ERadialImpulseFalloff::RIF_Constant, true);
 		}
@@ -51,7 +49,12 @@ void AFPSBlackHole::Tick(float DeltaTime)
 }
 
 void AFPSBlackHole::InnerOverlap(
-	class UPrimitiveComponent *OverlappedComp, class AActor *OtherActor, class UPrimitiveComponent *OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult &SweepResult)
+	class UPrimitiveComponent *OverlappedComp,
+	class AActor *OtherActor,
+	class UPrimitiveComponent *OtherComp,
+	int32 OtherBodyIndex,
+	bool bFromSweep,
+	const FHitResult &SweepResult)
 {
 	OtherActor->Destroy();
 }
