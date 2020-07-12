@@ -12,12 +12,12 @@ AFPSLaunchPad::AFPSLaunchPad()
 {
 	PrimaryActorTick.bCanEverTick = false;
 
+	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
+	RootComponent = MeshComp;
+
 	BoxComp = CreateDefaultSubobject<UBoxComponent>(TEXT("BoxComp"));
 	BoxComp->SetBoxExtent(FVector(100.f));
-	RootComponent = BoxComp;
-
-	MeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("MeshComp"));
-	MeshComp->SetupAttachment(BoxComp);
+	BoxComp->SetupAttachment(MeshComp);
 
 	LaunchStrength = 1100.f;
 	LaunchAngle = 37.f;

@@ -6,8 +6,8 @@
 #include "GameFramework/Actor.h"
 #include "FPSLaunchPad.generated.h"
 
-class UBoxComponent;
 class UStaticMeshComponent;
+class UBoxComponent;
 class UParticleSystem;
 
 UCLASS()
@@ -20,18 +20,18 @@ public:
 
 protected:
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UBoxComponent *BoxComp;
+	UStaticMeshComponent *MeshComp;
 
 	UPROPERTY(VisibleAnywhere, Category = "Components")
-	UStaticMeshComponent *MeshComp;
+	UBoxComponent *BoxComp;
 
 	UPROPERTY(EditDefaultsOnly, Category = "Components")
 	UParticleSystem *LaunchPadFX;
 
-	UPROPERTY(EditInstanceOnly, Category = "Launch")
+	UPROPERTY(EditDefaultsOnly, Category = "Launch")
 	float LaunchStrength;
 
-	UPROPERTY(EditInstanceOnly, Category = "Launch")
+	UPROPERTY(EditDefaultsOnly, Category = "Launch")
 	float LaunchAngle;
 
 	virtual void BeginPlay() override;
