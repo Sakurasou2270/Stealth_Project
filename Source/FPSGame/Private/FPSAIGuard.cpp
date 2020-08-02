@@ -7,14 +7,15 @@
 // Sets default values
 AFPSAIGuard::AFPSAIGuard()
 {
-	PawnSensingComp = CreateDefaultSubobject<UPawnSensingComponent>(TEXT("PawnSensingComp"));
 	PrimaryActorTick.bCanEverTick = false;
+	PawnSensingComp = CreateDefaultSubobject<UPawnSensingComponent>(TEXT("PawnSensingComp"));
 }
 
 void AFPSAIGuard::BeginPlay()
 {
 	Super::BeginPlay();
 	PawnSensingComp->OnSeePawn.AddDynamic(this, &AFPSAIGuard::OnPawnSeen);
+	PawnSensingComp->OnHearNoise.AddDynamic(this, &AFPSAIGuard::OnNoiseHeard);
 }
 
 void AFPSAIGuard::OnPawnSeen(APawn *SeenPawn)
@@ -24,7 +25,12 @@ void AFPSAIGuard::OnPawnSeen(APawn *SeenPawn)
 		return;
 	}
 
-	DrawDebugSphere(GetWorld(), SeenPawn->GetActorLocation(), 32.f, 10, FColor::Purple, false, 7.f, 0, 5.f);
+	DrawDebugSphere(GetWorld(), SeenPawn->GetActorLocation(), 32.f, 10, FColor::Green, false, 7.f, 0, 5.f);
+}
+
+void AFPSAIGuard::OnNoiseHeard(APawn *NoiseInstigator, const FVector &Location, float Volume)
+{
+	DrawDebugSphere(GetWorld(), Location, 32.f, 10, FColor::Yellow, false, 7.f, 0, 5.f);
 }
 
 void AFPSAIGuard::Tick(float DeltaTime)
