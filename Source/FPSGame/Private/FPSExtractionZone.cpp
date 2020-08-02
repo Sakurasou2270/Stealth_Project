@@ -53,7 +53,7 @@ void AFPSExtractionZone::HandleOverlap(
 		if (GM)
 		{
 			// The player is going to trigger this event
-			GM->CompleteMission(Player);
+			GM->CompleteMission(Player, true);
 		}
 	}
 	else
